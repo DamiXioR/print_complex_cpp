@@ -45,7 +45,7 @@ endif()
 # initialize sets for main, src and tests
 
 set(MAIN
-    main.cpp
+    src/main.cpp
 )
 
 set(SRC
