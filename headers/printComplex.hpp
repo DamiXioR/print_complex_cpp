@@ -2,10 +2,10 @@
 #include <iostream>
 #include <type_traits>
 
-class printComplex {
+class PrintComplex {
 public:
     template <typename Type, std::enable_if_t<std::is_class<Type>::value, bool> = true>
-    printComplex& operator()(Type moreThanOneValue)
+    PrintComplex& operator()(Type moreThanOneValue)
     {
         for (const auto& element : moreThanOneValue) {
             std::cout << element << " ";
@@ -15,7 +15,7 @@ public:
     }
 
     template <typename Type, std::enable_if_t<!std::is_class<Type>::value, bool> = true>
-    printComplex& operator()(Type justOneArgument)
+    PrintComplex& operator()(Type justOneArgument)
     {
         std::cout << justOneArgument << "\n";
         return *this;
