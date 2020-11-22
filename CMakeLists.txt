@@ -57,6 +57,16 @@ set(TESTS
     tests/printComplex.ut.cpp
 )
 
+set(FLAGS
+    -Wextra
+    -Wconversion
+    -Wpedantic
+    -Werror
+    -O3
+    -std=c++17
+)
+
+
 # main funcionality - executable main program
 
 include_directories(headers)
@@ -64,6 +74,7 @@ include_directories(headers)
 add_executable(${PROJECT_NAME} ${MAIN})
 add_library(${PROJECT_NAME}-lib ${SRC})
 target_link_libraries(${PROJECT_NAME} PRIVATE ${PROJECT_NAME}-lib)
+target_compile_options(${PROJECT_NAME} PRIVATE ${FLAGS})
 
 # main funcionality - executable tests
 
