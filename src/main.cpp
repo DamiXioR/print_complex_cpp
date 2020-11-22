@@ -5,10 +5,10 @@
 int main()
 {
     std::vector<int> v {10,20,30,40};
-    printComplex<std::vector<int>>::printC(v);
+    printComplex{}(v);
 
     int num = 999;
-    printComplex<std::vector<int>>::printC(num);
+    printComplex{}(num);
 
     return 0;
 }
