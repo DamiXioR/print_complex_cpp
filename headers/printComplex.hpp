@@ -9,7 +9,7 @@ template <typename... T>
 class PrintComplex {
 public:
     template <typename Type, std::enable_if_t<std::is_class<Type>::value, bool> = true>
-    PrintComplex& operator()(Type moreThanOneValue)
+    void operator()(Type& moreThanOneValue) const
     {
         if constexpr (std::is_same<Type, std::vector<T...>>::value) {
             for (const auto& element : moreThanOneValue) {
@@ -26,13 +26,11 @@ public:
             }
             std::cout << "\n";
         }
-        return *this;
     }
 
     template <typename Type, std::enable_if_t<!std::is_class<Type>::value, bool> = true>
-    PrintComplex& operator()(Type justOneArgument)
+    void operator()(Type& justOneArgument) const
     {
         std::cout << justOneArgument << "\n";
-        return *this;
     }
 };
